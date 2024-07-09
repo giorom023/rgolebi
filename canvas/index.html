@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canvas Circles with Different Stroke Color</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+    }
+    canvas {
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="myCanvas" width="400" height="400"></canvas>
+  <script>
+    let canvas = document.getElementById("myCanvas");
+    let ctx = canvas.getContext("2d");
+
+    function drawCircle(x, y, radius, fillColor, strokeColor) {
+      ctx.beginPath();
+      ctx.arc(x, y, radius, 0, 2 * Math.PI);
+      ctx.fillStyle = fillColor;
+      ctx.fill();
+      ctx.strokeStyle = strokeColor;
+      ctx.stroke();
+    }
+
+    function drawRing(x, y, R, r, fillColor, strokeColor) {
+      drawCircle(x, y, R, fillColor, strokeColor);
+      drawCircle(x, y, r, "#FFFFFF", strokeColor);
+    }
+
+    function drawAllCircles() {
+      drawRing(100, 100, 30, 20, "#FF5733", "#00FF00");
+  
+     
+
+      drawRing(200, 150, 40, 30, "#FFC300", "#FF00FF");
+    
+
+      drawRing(300, 200, 50, 30, "#581845", "#32CD32");
+   
+
+      drawRing(250, 250, 60, 40, "#900C3F", "#4682B4");
+    
+
+      drawRing(200, 300, 70, 50, "#2E86C1", "#FF1493");
+      
+    
+    }
+
+    drawAllCircles();
+  </script>
+</body>
+</html>
